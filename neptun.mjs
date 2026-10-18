@@ -33,9 +33,6 @@ export class Neptun {
   levels(lat, lon, radius = 25) { return this.#get("levels", { lat, lon, radius }); }
   warnings(lat, lon, radius = 50, lang = "en") { return this.#get("warnings", { lat, lon, radius, lang }); }
   locks(lat, lon, radius = 25) { return this.#get("locks", { lat, lon, radius }); }
-  shelter(lat, lon, radius = 25, protectedFrom = null) {
-    return this.#get("shelter", { lat, lon, radius, protected_from: protectedFrom?.join(",") });
-  }
   me() { return this.#get("me"); }
 }
 

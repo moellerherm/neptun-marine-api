@@ -1,4 +1,4 @@
-"""Minimal Neptun API client — tides, currents, gauges, notices, locks, shelter.
+"""Minimal Neptun API client — tides, currents, gauges, notices and locks.
 
     pip install requests
     export NEPTUN_KEY=mapi_...
@@ -48,12 +48,6 @@ class Neptun:
 
     def locks(self, lat, lon, radius=25):
         return self._get("locks", lat=lat, lon=lon, radius=radius)
-
-    def shelter(self, lat, lon, radius=25, protected_from=None):
-        p = {"lat": lat, "lon": lon, "radius": radius}
-        if protected_from:
-            p["protected_from"] = ",".join(protected_from)
-        return self._get("shelter", **p)
 
     def me(self):
         return self._get("me")

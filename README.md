@@ -1,9 +1,12 @@
 # Neptun — marine data API clients
 
 Two tiny clients for the [Neptun marine data API](https://neptun.marine-api.com/) — tides, tidal
-currents, water level gauges, navigational notices, locks and harbour shelter, from one key.
+currents, water level gauges, navigational notices and locks, from one key.
 
 No framework, no build step. Copy one into your project and delete what you don't need.
+
+**Free tier:** 1,000 calls/month for development and non-commercial use, all endpoints, no card
+required — [get a key](https://neptun.marine-api.com/#pricing).
 
 | File | Runtime |
 |---|---|
@@ -13,7 +16,7 @@ No framework, no build step. Copy one into your project and delete what you don'
 ## Quick start
 
 ```bash
-export NEPTUN_KEY=mapi_...      # get one at https://neptun.marine-api.com/pricing/
+export NEPTUN_KEY=mapi_...      # free key: https://neptun.marine-api.com/#pricing
 
 python neptun.py
 node neptun.mjs
@@ -37,7 +40,6 @@ for e in tide["extremes"][:4]:
 | `levels(lat, lon)` | `/v1/levels` | Measured water level, waves, sea temperature — 998 stations, 9 official networks |
 | `warnings(lat, lon)` | `/v1/warnings` | Navigational warnings from 30 official sources, geolocated and translated |
 | `locks(lat, lon)` | `/v1/locks` | 3,396 European locks with dimensions, VHF channel and live operating hours |
-| `shelter(lat, lon)` | `/v1/shelter` | Wind shelter for 22,669 marinas — which directions a harbour is protected from |
 | `me()` | `/v1/me` | Plan, scopes, quota — costs no quota |
 
 Full reference: <https://neptun.marine-api.com/docs/> ·
