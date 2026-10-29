@@ -38,13 +38,27 @@ for e in tide["extremes"][:4]:
 | `tides(lat, lon)` | `/v1/tides` | Height, high/low water — worldwide, from FES2022b |
 | `currents(lat, lon)` | `/v1/currents` | Set & drift — worldwide, from FES2014a |
 | `levels(lat, lon)` | `/v1/levels` | Measured water level, waves, sea temperature — 998 stations, 9 official networks |
-| `warnings(lat, lon)` | `/v1/warnings` | Navigational warnings from 30 official sources, geolocated and translated |
+| `warnings(lat, lon)` | `/v1/warnings` | Navigational warnings from 61 official sources, geolocated, de-duplicated and translated |
 | `locks(lat, lon)` | `/v1/locks` | 3,396 European locks with dimensions, VHF channel and live operating hours |
 | `me()` | `/v1/me` | Plan, scopes, quota — costs no quota |
 
 Full reference: <https://neptun.marine-api.com/docs/> ·
 Coverage and freshness per source: <https://neptun.marine-api.com/coverage/> ·
 Machine-readable spec: <https://neptun.marine-api.com/openapi.json>
+
+## Navigational warnings: what each notice tells you
+
+Since 29 October 2026 notices come from a new processing pipeline. Nothing was removed — existing
+fields keep their meaning — but three normalised fields are now filled for every source:
+
+| Field | Values | Meaning |
+|---|---|---|
+| `kind` | `closure`, `works`, `event`, `military_exercise`, `search_and_rescue`, `aids_to_navigation`, `obstruction`, `water_level`, `structure`, `traffic_rule`, `security`, `other` | one classification across all sources |
+| `validity` | `fixed`, `indefinite`, `unknown` | has an end date / until further notice |
+| `position` | `exact`, `text`, `waterway_km`, `seamark`, `place`, `area`, `none` | where the coordinate comes from — `exact` is published by the source; `place` and `area` are approximations (also flagged by `coarse: true`) |
+
+Use `position` to decide how precisely to draw a notice: a point for `exact`/`text`/`waterway_km`/`seamark`,
+a wider marker for `place`/`area`. Details: <https://neptun.marine-api.com/docs/warnings/>
 
 ## The two responses that matter in practice
 
