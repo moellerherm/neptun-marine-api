@@ -55,7 +55,7 @@ fields keep their meaning — but three normalised fields are now filled for eve
 |---|---|---|
 | `kind` | `closure`, `works`, `event`, `military_exercise`, `search_and_rescue`, `aids_to_navigation`, `obstruction`, `water_level`, `structure`, `traffic_rule`, `security`, `other` | one classification across all sources |
 | `validity` | `fixed`, `indefinite`, `unknown` | has an end date / until further notice |
-| `position` | `exact`, `text`, `waterway_km`, `seamark`, `place`, `area`, `none` | where the coordinate comes from — `exact` is published by the source; `place` and `area` are approximations (also flagged by `coarse: true`) |
+| `position` | `exact`, `text`, `waterway_km`, `seamark`, `place`, `area`, `water`, `none` | where the coordinate comes from — `exact` is published by the source; `place`, `area` and `water` (moved into the nearest water) are approximations, also flagged by `coarse: true` |
 
 Use `position` to decide how precisely to draw a notice: a point for `exact`/`text`/`waterway_km`/`seamark`,
 a wider marker for `place`/`area`. Details: <https://neptun.marine-api.com/docs/warnings/>
