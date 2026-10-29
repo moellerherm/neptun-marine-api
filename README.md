@@ -38,7 +38,7 @@ for e in tide["extremes"][:4]:
 | `tides(lat, lon)` | `/v1/tides` | Height, high/low water — worldwide, from FES2022b |
 | `currents(lat, lon)` | `/v1/currents` | Set & drift — worldwide, from FES2014a |
 | `levels(lat, lon)` | `/v1/levels` | Measured water level, waves, sea temperature — 998 stations, 9 official networks |
-| `warnings(lat, lon)` | `/v1/warnings` | Navigational warnings from 61 official sources, geolocated, de-duplicated and translated |
+| `warnings(lat, lon)` | `/v1/warnings` | Navigational warnings from 60 official national sources (current list: [coverage](https://neptun.marine-api.com/coverage/)), geolocated, de-duplicated and translated |
 | `locks(lat, lon)` | `/v1/locks` | 3,396 European locks with dimensions, VHF channel and live operating hours |
 | `me()` | `/v1/me` | Plan, scopes, quota — costs no quota |
 
